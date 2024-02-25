@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import router from './routes/router.js'
 import rateLimit from 'express-rate-limit'
+import axios from 'axios'
 
 dotenv.config()
 
@@ -14,6 +15,8 @@ const limit = rateLimit({
 })
 
 const app = express()
+
+app.use(express.static('public'))
 
 app.set('trust proxy', 1)
 app.use(limit)
